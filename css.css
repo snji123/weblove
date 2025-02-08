@@ -102,7 +102,7 @@ body {
 }
 
 .navigation button {
-    background: linear-gradient(to bottom right, #00cc66 0%, #000066 100%);
+ background-color: white;
     border: none;
     padding: 10px;
     margin: 5px;
