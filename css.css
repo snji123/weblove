@@ -23,7 +23,7 @@ body {
     background-position: center;
     
     
-        text-shadow: 0 0 0.2em #8F7;
+        text-shadow: 0 0 0.2em rgb(255, 255, 255);
       
     
 }
@@ -48,9 +48,10 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background: linear-gradient(to bottom right, #00ff9962 0%, #00006690 100%);
+ background: black; 
     border-radius: 10px;
     margin-top:45px;
+    opacity: 0.9;
 }
 
 .barra-hijo a {
