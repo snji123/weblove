@@ -27,7 +27,7 @@
                 <img id="play-icon1" src="https://cdn-icons-png.flaticon.com/512/27/27223.png" alt="Play" class="icon">
             </button>
         </div>
-        <div class="progress-container" onclick="seek(event, 'audio1')" ontouchstart="handleTouchStart(event, 'audio1')" ontouchmove="handleTouchMove(event, 'audio1')">
+        <div class="progress-container" onclick="seek(event, 'audio1')">
             <div class="progress-bar" id="progress-bar1"></div>
         </div>
         <div class="time">
@@ -48,7 +48,7 @@
                 <img id="play-icon2" src="https://cdn-icons-png.flaticon.com/512/27/27223.png" alt="Play" class="icon">
             </button>
         </div>
-        <div class="progress-container" onclick="seek(event, 'audio2')" ontouchstart="handleTouchStart(event, 'audio2')" ontouchmove="handleTouchMove(event, 'audio2')">
+        <div class="progress-container" onclick="seek(event, 'audio2')">
             <div class="progress-bar" id="progress-bar2"></div>
         </div>
         <div class="time">
@@ -58,7 +58,7 @@
     </div>
 
     <!-- Reproductor 3 -->
-    <div class="player"style="background-image: url(kevin.gif); background-size:cover;">
+    <div class="player" style="background-image: url(kevin.gif); background-size:cover;">
         <h2>San Lucas</h2>
         <audio id="audio3" src="song3.mp3"></audio>
         <div>
@@ -69,7 +69,7 @@
                 <img id="play-icon3" src="https://cdn-icons-png.flaticon.com/512/27/27223.png" alt="Play" class="icon">
             </button>
         </div>
-        <div class="progress-container" onclick="seek(event, 'audio3')" ontouchstart="handleTouchStart(event, 'audio3')" ontouchmove="handleTouchMove(event, 'audio3')">
+        <div class="progress-container" onclick="seek(event, 'audio3')">
             <div class="progress-bar" id="progress-bar3"></div>
         </div>
         <div class="time">
@@ -90,7 +90,7 @@
                 <img id="play-icon4" src="https://cdn-icons-png.flaticon.com/512/27/27223.png" alt="Play" class="icon">
             </button>
         </div>
-        <div class="progress-container" onclick="seek(event, 'audio4')" ontouchstart="handleTouchStart(event, 'audio4')" ontouchmove="handleTouchMove(event, 'audio4')">
+        <div class="progress-container" onclick="seek(event, 'audio4')">
             <div class="progress-bar" id="progress-bar4"></div>
         </div>
         <div class="time">
@@ -111,7 +111,7 @@
                 <img id="play-icon5" src="https://cdn-icons-png.flaticon.com/512/27/27223.png" alt="Play" class="icon">
             </button>
         </div>
-        <div class="progress-container" onclick="seek(event, 'audio5')" ontouchstart="handleTouchStart(event, 'audio5')" ontouchmove="handleTouchMove(event, 'audio5')">
+        <div class="progress-container" onclick="seek(event, 'audio5')">
             <div class="progress-bar" id="progress-bar5"></div>
         </div>
         <div class="time">
@@ -121,9 +121,9 @@
     </div>
 
     <div class="contador-container">
-    <p class="contador-texto">Tiempo Juntos</p>
-    <p class="contador" id="contador">0 días, 0 horas, 0 minutos, 0 segundos</p>
-</div>
+        <p class="contador-texto">Tiempo Juntos</p>
+        <p class="contador" id="contador">0 días, 0 horas, 0 minutos, 0 segundos</p>
+    </div>
 
     <script>
         function togglePlay(audioId, playIconId) {
@@ -175,28 +175,6 @@
             }
         }
 
-        // Función para manejar el inicio del toque
-        function handleTouchStart(event, audioId) {
-            const audio = document.getElementById(audioId);
-            const progressContainer = event.currentTarget;
-            const touch = event.touches[0]; // Obtener la posición del toque
-            const clickX = touch.clientX - progressContainer.getBoundingClientRect().left;
-            const width = progressContainer.clientWidth;
-            const duration = audio.duration;
-            audio.currentTime = (clickX / width) * duration;
-        }
-
-        // Función para manejar el movimiento del toque
-        function handleTouchMove(event, audioId) {
-            const audio = document.getElementById(audioId);
-            const progressContainer = event.currentTarget;
-            const touch = event.touches[0]; // Obtener la posición del toque
-            const clickX = touch.clientX - progressContainer.getBoundingClientRect().left;
-            const width = progressContainer.clientWidth;
-            const duration = audio.duration;
-            audio.currentTime = (clickX / width) * duration;
-        }
-
         // Función para manejar el clic o toque en la barra de progreso
         function seek(event, audioId) {
             const audio = document.getElementById(audioId);
@@ -238,49 +216,35 @@
             return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
         }
 
-
-
-
-
-
-
-
         const fechaInicio = new Date("2024-10-19T00:00:00");
 
-function actualizarContador() {
-    const ahora = new Date();
-    const diferencia = ahora - fechaInicio;
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
 
-    // Calcular meses, días, horas, minutos y segundos
-    const segundosTotales = Math.floor(diferencia / 1000);
-    const minutosTotales = Math.floor(segundosTotales / 60);
-    const horasTotales = Math.floor(minutosTotales / 60);
-    const diasTotales = Math.floor(horasTotales / 24);
+            // Calcular meses, días, horas, minutos y segundos
+            const segundosTotales = Math.floor(diferencia / 1000);
+            const minutosTotales = Math.floor(segundosTotales / 60);
+            const horasTotales = Math.floor(minutosTotales / 60);
+            const diasTotales = Math.floor(horasTotales / 24);
 
-    // Calcular meses
-    const meses = Math.floor(diasTotales / 30); // Aproximación de 30 días por mes
-    const dias = diasTotales % 30; // Días restantes después de calcular los meses
-    const horas = horasTotales % 24; // Horas restantes después de calcular los días
-    const minutos = minutosTotales % 60; // Minutos restantes después de calcular las horas
-    const segundos = segundosTotales % 60; // Segundos restantes después de calcular los minutos
+            // Calcular meses
+            const meses = Math.floor(diasTotales / 30); // Aproximación de 30 días por mes
+            const dias = diasTotales % 30; // Días restantes después de calcular los meses
+            const horas = horasTotales % 24; // Horas restantes después de calcular los días
+            const minutos = minutosTotales % 60; // Minutos restantes después de calcular las horas
+            const segundos = segundosTotales % 60; // Segundos restantes después de calcular los minutos
 
-    // Mostrar el contador
-    document.getElementById("contador").textContent = 
-        `${meses} meses, ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
-}
+            // Mostrar el contador
+            document.getElementById("contador").textContent = 
+                `${meses} meses, ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
 
-// Actualizar el contador cada segundo
-setInterval(actualizarContador, 1000);
+        // Actualizar el contador cada segundo
+        setInterval(actualizarContador, 1000);
 
-// Iniciar el contador al cargar la página
-actualizarContador();
-
-
-
-
-
-
-              
+        // Iniciar el contador al cargar la página
+        actualizarContador();
     </script>
 </body>
 </html>
