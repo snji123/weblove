@@ -111,3 +111,30 @@ body {
     font-size: 18px;
     border-radius: 20%;
 }
+
+
+.contador-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-family: "pacifico";
+ 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.contador-texto {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "monoton";
+    color: #000000;
+}
+
+.contador {
+    font-size: 1.3em;
+  
+    color: #ffffff;
+}
