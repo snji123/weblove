@@ -73,13 +73,13 @@ h2{
 
 .player {
     background: #333;
-    padding: 37% 10px 0px 10px;
+    padding: 47% 10px 0px 10px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
     margin-bottom: 20px;
     height: 300px;
-    width: 50%;
+    width: 60%;
     margin-top:50px;
     text-shadow: none;
     opacity: 0.9;
