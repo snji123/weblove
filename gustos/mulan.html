@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gustos.css">
+    <title>Reproducir Video de Vimeo</title>
+    <style>
+        /* Estilos para hacer el contenedor responsivo */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Ajustes adicionales para dispositivos móviles */
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%; /* Ajusta la relación de aspecto para móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="barra-padre">
+        <div class="barra-hijo">
+            <a href="../index.html">Fotos</a>
+            <a href="../musica/musuca.html">Música</a>
+            <a href="../gustos/mulan.html">Gustos</a>
+        </div>
+    </div>
+
+
+
+
+    <h1>Mulan</h1>
+    <!-- Contenedor del video de Vimeo -->
+    <div style="padding:60.47% 0 0 0;position:relative;">
+        <iframe 
+            src="https://player.vimeo.com/video/1056194863?h=a70248b256&badge=0&autopause=0&player_id=0&app_id=58479" 
+            frameborder="0" 
+            allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+            title="Mulan">
+        </iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+
+
+    <h1>Shrek</h1>
+<!-- Contenedor del video de Vimeo -->
+<div style="padding:56.25% 0 0 0;position:relative;">
+    <iframe 
+        src="https://player.vimeo.com/video/1056502065?h=71be02097e&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" 
+        frameborder="0" 
+        allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+        title="Mulan">
+    </iframe>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+
+
+<h1>Shrek</h1>
+<!-- Contenedor del video de Google Drive -->
+<div class="video-container">
+    <iframe 
+        src="https://drive.google.com/file/d/1EItCncytZHFcScC_3KCh9rYFFFT-ACyX/preview" 
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+        title="Shrek">
+    </iframe>
+</div>
+
+</body>
+</html>
