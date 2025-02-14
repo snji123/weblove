@@ -77,7 +77,7 @@
 
 
 
-<h1>Shrek</h1>
+<h1>Valiente</h1>
 <!-- Contenedor del video de Google Drive -->
 <div class="video-container">
     <iframe 
@@ -87,6 +87,50 @@
         title="Shrek">
     </iframe>
 </div>
+
+
+<div class="contador-container">
+    <p class="contador-texto">Desde ese Dia, cada momento es nuestro</p>
+    <p class="contador" id="contador">0 días, 0 horas, 0 minutos, 0 segundos</p>
+</div>
+
+
+
+<script>
+    
+
+    const fechaInicio = new Date("2024-10-19T00:00:00");
+
+function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio;
+
+    // Calcular meses, días, horas, minutos y segundos
+    const segundosTotales = Math.floor(diferencia / 1000);
+    const minutosTotales = Math.floor(segundosTotales / 60);
+    const horasTotales = Math.floor(minutosTotales / 60);
+    const diasTotales = Math.floor(horasTotales / 24);
+
+    // Calcular meses
+    const meses = Math.floor(diasTotales / 30); // Aproximación de 30 días por mes
+    const dias = diasTotales % 30; // Días restantes después de calcular los meses
+    const horas = horasTotales % 24; // Horas restantes después de calcular los días
+    const minutos = minutosTotales % 60; // Minutos restantes después de calcular las horas
+    const segundos = segundosTotales % 60; // Segundos restantes después de calcular los minutos
+
+    // Mostrar el contador
+    document.getElementById("contador").textContent = 
+        `${meses} meses, ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+}
+
+// Actualizar el contador cada segundo
+setInterval(actualizarContador, 1000);
+
+// Iniciar el contador al cargar la página
+actualizarContador();
+
+
+</script>
 
 </body>
 </html>
