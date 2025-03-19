@@ -157,36 +157,51 @@
 
 
 
-
         const fechaInicio = new Date("2024-10-19T00:00:00");
 
 function actualizarContador() {
     const ahora = new Date();
-    const diferencia = ahora - fechaInicio;
 
-    // Calcular meses, días, horas, minutos y segundos
-    const segundosTotales = Math.floor(diferencia / 1000);
-    const minutosTotales = Math.floor(segundosTotales / 60);
-    const horasTotales = Math.floor(minutosTotales / 60);
-    const diasTotales = Math.floor(horasTotales / 24);
+    // Obtener diferencia total en milisegundos
+    let diferencia = ahora - fechaInicio;
 
-    // Calcular meses
-    const meses = Math.floor(diasTotales / 30); // Aproximación de 30 días por mes
-    const dias = diasTotales % 30; // Días restantes después de calcular los meses
-    const horas = horasTotales % 24; // Horas restantes después de calcular los días
-    const minutos = minutosTotales % 60; // Minutos restantes después de calcular las horas
-    const segundos = segundosTotales % 60; // Segundos restantes después de calcular los minutos
+    // Calcular años, meses y días de manera precisa
+    let años = ahora.getFullYear() - fechaInicio.getFullYear();
+    let meses = ahora.getMonth() - fechaInicio.getMonth();
+    let dias = ahora.getDate() - fechaInicio.getDate();
+
+    // Ajustar si los días son negativos
+    if (dias < 0) {
+        // Obtener el último día del mes anterior
+        let ultimoDiaMesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate();
+        dias += ultimoDiaMesAnterior;
+        meses--;
+    }
+
+    // Ajustar si los meses son negativos
+    if (meses < 0) {
+        meses += 12;
+        años--;
+    }
+
+    // Calcular diferencia en horas, minutos y segundos
+    let segundosTotales = Math.floor(diferencia / 1000);
+    let minutosTotales = Math.floor(segundosTotales / 60);
+    let horasTotales = Math.floor(minutosTotales / 60);
+
+    let horas = horasTotales % 24;
+    let minutos = minutosTotales % 60;
+    let segundos = segundosTotales % 60;
 
     // Mostrar el contador
-    document.getElementById("contador").textContent = 
+    document.getElementById("contador").textContent =
         `${meses} meses, ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
 }
 
 // Actualizar el contador cada segundo
 setInterval(actualizarContador, 1000);
-
-// Iniciar el contador al cargar la página
 actualizarContador();
+
 
 
 
